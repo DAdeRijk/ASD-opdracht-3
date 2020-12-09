@@ -8,7 +8,7 @@ public class Customer {
     private String iban;
     private Company company;
     private List<User> users;
-    private List<Train> trains;
+    private List<Locomotive> locomotives;
     private List<Wagon> wagons;
     private List<TrainCompositionMessage> trainCompositionMessages;
 }
