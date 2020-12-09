@@ -4,9 +4,11 @@ import java.util.List;
 
 public class Customer {
     private int customerId;
-    private List<User> userList;
     private String customerName;
-    private String kvk;
     private String iban;
     private Company company;
+    private List<User> users;
+    private List<Train> trains;
+    private List<Wagon> wagons;
+    private List<TrainCompositionMessage> trainCompositionMessages;
 }
