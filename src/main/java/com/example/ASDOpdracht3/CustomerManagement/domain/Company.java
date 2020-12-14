@@ -1,4 +1,4 @@
-package com.example.ASDOpdracht3.UserManagement.domain;
+package com.example.ASDOpdracht3.CustomerManagement.domain;
 
 public class Company {
     private int id;

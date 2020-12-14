@@ -1,4 +1,4 @@
-package com.example.ASDOpdracht3.UserManagement.domain;
+package com.example.ASDOpdracht3.CustomerManagement.domain;
 
 import com.example.ASDOpdracht3.TrainManagement.domain.Locomotive;
 import com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage;
