@@ -1,26 +1,52 @@
 package com.example.ASDOpdracht3.CustomerManagement.domain.Company;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+
 public class Company {
     private int id;
     private int companyId;
-    private int companyCode;
+    private String companyCode;
     private String name;
     private String shortName;
     private String url;
     private String countryIso;
 
-    public Company(int id, int companyId, int companyCode, String name, String shortName, String url, String countryIso) {
-        this.id = id;
-        this.companyId = companyId;
+    public Company(String companyCode) {
+        setCompanyInformation(companyCode);
         this.companyCode = companyCode;
-        this.name = name;
-        this.shortName = shortName;
-        this.url = url;
-        this.countryIso = countryIso;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setCompanyInformation(String cc){
+        try{
+            String text = new String(Files.readAllBytes(Paths.get("~/resources/RegisteredCompanies.json")), StandardCharsets.UTF_8);
+
+            JSONObject obj = new JSONObject(text);
+            JSONObject companies = obj.getJSONObject("companies");
+
+            for(int i = 0; i < companies.length(); i++){
+                if(companies.get("companyCode").toString().toLowerCase().equals(cc.toLowerCase())){
+                    this.countryIso=companies.get("countryIso").toString();
+                    this.name=companies.get("Name").toString();
+                    this.url=companies.get("Url").toString();
+                    this.shortName=companies.get("shortName").toString();
+                    break;
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.toString());
+        }
     }
 
     public int getCompanyId() {
@@ -31,12 +57,8 @@ public class Company {
         this.companyId = companyId;
     }
 
-    public int getCompanyCode() {
+    public String getCompanyCode() {
         return companyCode;
-    }
-
-    public void setCompanyCode(int companyCode) {
-        this.companyCode = companyCode;
     }
 
     public String getName() {

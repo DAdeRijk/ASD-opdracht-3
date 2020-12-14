@@ -5,7 +5,8 @@ import com.example.ASDOpdracht3.CustomerManagement.domain.User.User;
 import com.example.ASDOpdracht3.TrainManagement.domain.Locomotive.Locomotive;
 import com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage.TrainCompositionMessage;
 import com.example.ASDOpdracht3.TrainManagement.domain.Wagon.Wagon;
-
+import org.apache.commons.validator.routines.checkdigit.IBANCheckDigit;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -18,15 +19,15 @@ public class Customer {
     private List<Wagon> wagons;
     private List<TrainCompositionMessage> trainCompositionMessages;
 
-    public Customer(int customerId, String customerName, String iban, Company company, List<User> users, List<Locomotive> locomotives, List<Wagon> wagons, List<TrainCompositionMessage> trainCompositionMessages) {
-        this.customerId = customerId;
+    public Customer(String customerName, String iban, Company company) {
+        this.customerId = 0;
         this.customerName = customerName;
         this.iban = iban;
         this.company = company;
-        this.users = users;
-        this.locomotives = locomotives;
-        this.wagons = wagons;
-        this.trainCompositionMessages = trainCompositionMessages;
+        this.users = new ArrayList<User>();
+        this.locomotives = new ArrayList<Locomotive>();
+        this.wagons = new ArrayList<Wagon>();
+        this.trainCompositionMessages = new ArrayList<TrainCompositionMessage>();
     }
 
     public int getCustomerId() {
@@ -47,6 +48,9 @@ public class Customer {
 
     public void setIban(String iban) {
         this.iban = iban;
+    }
+    public Boolean validateIban(){
+        return new IBANCheckDigit().isValid(this.iban);
     }
 
     public Company getCompany() {
@@ -87,5 +91,8 @@ public class Customer {
 
     public void setTrainCompositionMessages(List<TrainCompositionMessage> trainCompositionMessages) {
         this.trainCompositionMessages = trainCompositionMessages;
+    }
+    public void addUser(User u){
+        this.users.add(u);
     }
 }

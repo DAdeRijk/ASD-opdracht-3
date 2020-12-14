@@ -1,0 +1,20 @@
+{
+  "Companies": [
+    {
+      "companyId": 1,
+      "companyCode": "NS",
+      "name": "Nationale Spoorwegen",
+      "shortName": "NS",
+      "url": "www.ns.nl",
+      "countryIso": "NL"
+    },
+    {
+      "companyId": 2,
+      "companyCode": "PR",
+      "name": "ProRail",
+      "shortName": "Prail",
+      "url": "www.prorail.nl",
+      "countryIso": "NL"
+    }
+  ]
+}
