@@ -1,8 +1,10 @@
-package com.example.ASDOpdracht3.CustomerManagement.domain;
+package com.example.ASDOpdracht3.CustomerManagement.domain.Customer;
 
-import com.example.ASDOpdracht3.TrainManagement.domain.Locomotive;
-import com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage;
-import com.example.ASDOpdracht3.TrainManagement.domain.Wagon;
+import com.example.ASDOpdracht3.CustomerManagement.domain.Company.Company;
+import com.example.ASDOpdracht3.CustomerManagement.domain.User.User;
+import com.example.ASDOpdracht3.TrainManagement.domain.Locomotive.Locomotive;
+import com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage.TrainCompositionMessage;
+import com.example.ASDOpdracht3.TrainManagement.domain.Wagon.Wagon;
 
 import java.util.List;
 

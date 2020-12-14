@@ -1,4 +1,7 @@
-package com.example.ASDOpdracht3.TrainManagement.domain;
+package com.example.ASDOpdracht3.TrainManagement.domain.TrainComposition;
+
+import com.example.ASDOpdracht3.TrainManagement.domain.Locomotive.Locomotive;
+import com.example.ASDOpdracht3.TrainManagement.domain.Wagon.Wagon;
 
 import java.util.List;
 

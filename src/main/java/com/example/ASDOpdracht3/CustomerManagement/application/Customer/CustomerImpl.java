@@ -1,4 +1,4 @@
-package com.example.ASDOpdracht3.CustomerManagement.application;
+package com.example.ASDOpdracht3.CustomerManagement.application.Customer;
 
 public class CustomerImpl implements Customer {
     @Override

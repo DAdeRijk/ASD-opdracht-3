@@ -1,4 +1,4 @@
-package com.example.ASDOpdracht3.CustomerManagement.controller;
+package com.example.ASDOpdracht3.CustomerManagement.controller.Customer;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

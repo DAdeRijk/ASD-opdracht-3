@@ -1,4 +1,6 @@
-package com.example.ASDOpdracht3.TrainManagement.domain;
+package com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage;
+
+import com.example.ASDOpdracht3.TrainManagement.domain.TrainComposition.TrainComposition;
 
 import java.util.Date;
 
