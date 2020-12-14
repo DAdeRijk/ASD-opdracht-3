@@ -1,4 +1,4 @@
-package com.example.ASDOpdracht3.domain;
+package com.example.ASDOpdracht3.TrainManagement.domain;
 
 public class Wagon {
     private int id;

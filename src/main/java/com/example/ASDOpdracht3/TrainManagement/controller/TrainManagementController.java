@@ -1,4 +1,4 @@
-package com.example.ASDOpdracht3.controller;
+package com.example.ASDOpdracht3.TrainManagement.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
