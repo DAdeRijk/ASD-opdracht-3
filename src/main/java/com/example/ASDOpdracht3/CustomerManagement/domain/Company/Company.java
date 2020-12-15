@@ -10,17 +10,18 @@ import java.nio.file.Paths;
 
 
 public class Company {
-    private int id;
+    private final int id;
     private int companyId;
-    private String companyCode;
+    private final String companyCode;
     private String name;
     private String shortName;
     private String url;
     private String countryIso;
 
-    public Company(String companyCode) {
+    public Company(int id,String companyCode) {
         setCompanyInformation(companyCode);
         this.companyCode = companyCode;
+        this.id=id;
     }
 
     public int getId() {

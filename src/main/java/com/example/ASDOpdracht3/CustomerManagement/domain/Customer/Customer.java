@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    private int customerId;
+    private final int customerId;
     private String customerName;
     private String iban;
     private Company company;
@@ -19,8 +19,8 @@ public class Customer {
     private List<Wagon> wagons;
     private List<TrainCompositionMessage> trainCompositionMessages;
 
-    public Customer(String customerName, String iban, Company company) {
-        this.customerId = 0;
+    public Customer(int id,String customerName, String iban, Company company) {
+        this.customerId = id;
         this.customerName = customerName;
         this.iban = iban;
         this.company = company;

@@ -6,10 +6,12 @@ import com.example.ASDOpdracht3.CustomerManagement.application.User.UserImpl;
 import com.example.ASDOpdracht3.CustomerManagement.domain.Company.Company;
 import com.example.ASDOpdracht3.CustomerManagement.domain.Customer.Customer;
 import com.example.ASDOpdracht3.CustomerManagement.domain.User.User;
+import com.example.ASDOpdracht3.CustomerManagement.domain.repository.CustomerRepository;
 
 public class CustomerImpl implements CustomerInterface {
+    private CustomerRepository customerRepository;
     @Override
-    public String registerCustomer(String iban,String firstName,String lastName,String email,String companyCode) throws Exception {
+    public String registerCustomer(String iban,String firstName,String lastName,String email,String companyCode) {
         CompanyImpl companyImpl = new CompanyImpl();
         Company c = companyImpl.createCompany(companyCode);
         if(c==null){
@@ -23,11 +25,13 @@ public class CustomerImpl implements CustomerInterface {
         }
         userImpl.sendWelcomeMail(email,firstName);
 
-        Customer customer = new Customer(firstName,iban,c);
+        Customer customer = new Customer(customerRepository.nextIdentity(),firstName,iban,c);
         if(!customer.validateIban()){
             return "INVALID_IBAN";
         }
         customer.addUser(user);
+        customerRepository.save(customer);
+
         return "SUCCESS";
 
     };

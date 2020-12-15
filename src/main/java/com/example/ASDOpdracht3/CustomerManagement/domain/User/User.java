@@ -1,7 +1,7 @@
 package com.example.ASDOpdracht3.CustomerManagement.domain.User;
 
 public class User {
-    private int userId;
+    private final int userId;
     private String firstName;
     private String lastName;
     private String email;
