@@ -2,18 +2,20 @@ package com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage;
 
 import com.example.ASDOpdracht3.TrainManagement.domain.TrainComposition.TrainComposition;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Optional;
 
 public class TrainCompositionMessage {
     private int id;
     private String messageStatus;
     private String sender;
     private String messageType;
-    private Date messageDateTime;
-    private Date startDate;
+    private LocalDateTime messageDateTime;
+    private LocalDateTime startDate;
     private TrainComposition trainComposition;
 
-    public TrainCompositionMessage(int id, String messageStatus, String sender, String messageType, Date messageDateTime, Date startDate, TrainComposition trainComposition) {
+    public TrainCompositionMessage(int id, String messageStatus, String sender, String messageType, LocalDateTime messageDateTime, LocalDateTime startDate, Optional<TrainComposition> trainComposition) {
         this.id = id;
         this.messageStatus = messageStatus;
         this.sender = sender;
@@ -21,6 +23,14 @@ public class TrainCompositionMessage {
         this.messageDateTime = messageDateTime;
         this.startDate = startDate;
         this.trainComposition = trainComposition;
+    }
+
+    public boolean startDateValid() {
+        return startDate.isAfter(LocalDateTime.now());
+    }
+
+    public boolean messageDateTimeValid() {
+        return messageDateTime.isBefore(startDate);
     }
 
     public int getId() {
@@ -51,19 +61,19 @@ public class TrainCompositionMessage {
         this.messageType = messageType;
     }
 
-    public Date getMessageDateTime() {
+    public LocalDateTime getMessageDateTime() {
         return messageDateTime;
     }
 
-    public void setMessageDateTime(Date messageDateTime) {
+    public void setMessageDateTime(LocalDateTime messageDateTime) {
         this.messageDateTime = messageDateTime;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
