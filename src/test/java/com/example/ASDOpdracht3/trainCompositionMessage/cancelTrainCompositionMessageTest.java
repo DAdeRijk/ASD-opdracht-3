@@ -15,7 +15,7 @@ public class cancelTrainCompositionMessageTest {
 
     @Test
     public void invalidTrainCompositionMessageIdShouldReturnInvalid() {
-        assertThat(trainCompositionMessageImpl.cancelTrainCompositionMessage(0).equals("Error"));
+        assertThat(trainCompositionMessageImpl.cancelTrainCompositionMessage(-1).equals("Error"));
     }
     @Test
     public void validIdShouldReturnSuccess() {
