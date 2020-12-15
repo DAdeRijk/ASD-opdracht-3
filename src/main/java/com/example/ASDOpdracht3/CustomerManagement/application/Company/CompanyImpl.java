@@ -22,7 +22,7 @@ public class CompanyImpl implements CompanyInterface {
     public Boolean checkCompanyCodeIsValid(int cc){
         boolean found=false;
         try{
-            String text = new String(Files.readAllBytes(Paths.get("~/resources/RegisteredCompanies.json")), StandardCharsets.UTF_8);
+            String text = new String(Files.readAllBytes(Paths.get("/resources/RegisteredCompanies.json")), StandardCharsets.UTF_8);
 
             JSONObject obj = new JSONObject(text);
             JSONObject companies = obj.getJSONObject("companies");
