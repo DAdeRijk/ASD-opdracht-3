@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface TrainCompositionMessageRepository extends JpaRepository<TrainCompositionMessage, String> {
-    Optional<TrainCompositionMessage> findById(String id);
+    Optional<TrainCompositionMessage> findById(int id);
 }
