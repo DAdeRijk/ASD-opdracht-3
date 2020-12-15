@@ -12,13 +12,13 @@ import java.nio.file.Paths;
 public class Company {
     private final int id;
     private int companyId;
-    private final String companyCode;
+    private final int companyCode;
     private String name;
     private String shortName;
     private String url;
     private String countryIso;
 
-    public Company(int id,String companyCode) {
+    public Company(int id,int companyCode) {
         setCompanyInformation(companyCode);
         this.companyCode = companyCode;
         this.id=id;
@@ -28,7 +28,7 @@ public class Company {
         return id;
     }
 
-    public void setCompanyInformation(String cc){
+    public void setCompanyInformation(int cc){
         try{
             String text = new String(Files.readAllBytes(Paths.get("~/resources/RegisteredCompanies.json")), StandardCharsets.UTF_8);
 
@@ -36,7 +36,7 @@ public class Company {
             JSONObject companies = obj.getJSONObject("companies");
 
             for(int i = 0; i < companies.length(); i++){
-                if(companies.get("companyCode").toString().toLowerCase().equals(cc.toLowerCase())){
+                if(Integer.parseInt(companies.get("companyCode").toString()) ==cc){
                     this.countryIso=companies.get("countryIso").toString();
                     this.name=companies.get("Name").toString();
                     this.url=companies.get("Url").toString();
@@ -58,7 +58,7 @@ public class Company {
         this.companyId = companyId;
     }
 
-    public String getCompanyCode() {
+    public int getCompanyCode() {
         return companyCode;
     }
 
