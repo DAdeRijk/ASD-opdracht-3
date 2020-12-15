@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface TrainCompositionRepository extends JpaRepository<TrainComposition, String> {
     Optional<TrainComposition> findById(int id);
-
+    int nextIdentity();
+    boolean saveTrainComposition(TrainComposition trainComposition);
 }

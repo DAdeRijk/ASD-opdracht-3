@@ -2,11 +2,8 @@ package com.example.ASDOpdracht3.TrainManagement.domain.TrainComposition;
 
 import com.example.ASDOpdracht3.TrainManagement.domain.Locomotive.Locomotive;
 import com.example.ASDOpdracht3.TrainManagement.domain.Wagon.Wagon;
-import com.example.ASDOpdracht3.TrainManagement.repository.TrainCompositionRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 public class TrainComposition {
     private int id;
