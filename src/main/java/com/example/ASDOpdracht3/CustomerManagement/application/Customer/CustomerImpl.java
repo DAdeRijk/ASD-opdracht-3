@@ -1,7 +1,6 @@
 package com.example.ASDOpdracht3.CustomerManagement.application.Customer;
 
 import com.example.ASDOpdracht3.CustomerManagement.application.Company.CompanyImpl;
-import com.example.ASDOpdracht3.CustomerManagement.application.Company.CompanyInterface;
 import com.example.ASDOpdracht3.CustomerManagement.application.User.UserImpl;
 import com.example.ASDOpdracht3.CustomerManagement.domain.Company.Company;
 import com.example.ASDOpdracht3.CustomerManagement.domain.Customer.Customer;
@@ -11,7 +10,7 @@ import com.example.ASDOpdracht3.CustomerManagement.domain.repository.CustomerRep
 public class CustomerImpl implements CustomerInterface {
     private CustomerRepository customerRepository;
     @Override
-    public String registerCustomer(String iban,String firstName,String lastName,String email,String companyCode) {
+    public String registerCustomer(String iban,String firstName,String lastName,String email,int companyCode) {
         CompanyImpl companyImpl = new CompanyImpl();
         Company c = companyImpl.createCompany(companyCode);
         if(c==null){
