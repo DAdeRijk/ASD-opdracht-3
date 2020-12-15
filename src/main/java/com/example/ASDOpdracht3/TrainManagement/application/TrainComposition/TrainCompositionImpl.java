@@ -17,7 +17,7 @@ public class TrainCompositionImpl implements TrainCompositionInterface {
     }
 
 
-    public TrainComposition findById(String id) {
+    public TrainComposition findById(int id) {
         return trainCompositionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Given TrainComposition not found"));
     }

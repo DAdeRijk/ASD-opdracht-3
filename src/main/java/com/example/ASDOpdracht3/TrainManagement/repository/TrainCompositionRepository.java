@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface TrainCompositionRepository extends JpaRepository<TrainComposition, String> {
-    Optional<TrainComposition> findById(String id);
+    Optional<TrainComposition> findById(int id);
 
 }

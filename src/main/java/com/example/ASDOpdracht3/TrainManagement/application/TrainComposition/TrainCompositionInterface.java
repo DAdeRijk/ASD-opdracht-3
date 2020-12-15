@@ -4,5 +4,5 @@ import com.example.ASDOpdracht3.TrainManagement.domain.TrainComposition.TrainCom
 
 public interface TrainCompositionInterface {
     public String createTrainComposition();
-    public TrainComposition findById(String id);
+    public TrainComposition findById(int id);
 }

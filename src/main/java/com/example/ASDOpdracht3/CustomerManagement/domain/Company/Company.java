@@ -30,7 +30,7 @@ public class Company {
 
     public void setCompanyInformation(int cc){
         try{
-            String text = new String(Files.readAllBytes(Paths.get("~/resources/RegisteredCompanies.json")), StandardCharsets.UTF_8);
+            String text = new String(Files.readAllBytes(Paths.get("/resources/RegisteredCompanies.json")), StandardCharsets.UTF_8);
 
             JSONObject obj = new JSONObject(text);
             JSONObject companies = obj.getJSONObject("companies");
