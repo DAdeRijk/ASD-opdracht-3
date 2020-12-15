@@ -32,7 +32,27 @@ public class TrainCompositionMessageImpl implements TrainCompositionMessageInter
     }
 
     @Override
-    public String deleteTrainCompositionMessage() {
-        return null;
+    public String cancelTrainCompositionMessage(int id) {
+        Optional<TrainCompositionMessage> trainCompositionMessage = trainCompositionMessageRepository.findById(id);
+        if(trainCompositionMessage.isPresent() && trainCompositionMessage.get().startDateValid()) {
+            TrainCompositionMessage actualTrainCompositionMessage = trainCompositionMessage.get();
+            actualTrainCompositionMessage.setMessageStatus("cancelled");
+            String messageResult = sendMessage(actualTrainCompositionMessage);
+            if(messageResult == "Success") {
+                trainCompositionMessageRepository.save(actualTrainCompositionMessage);
+            } else {
+                return "Error: " + messageResult;
+            }
+            return "Success";
+        }
+        return "Error";
     }
+
+    //sendmessage functie die een bericht verstuurd naar de sppornetbeheerder api (extern die wij niet hebben)
+    @Override
+    public String sendMessage(TrainCompositionMessage trainCompositionMessage) {
+        return "Success";
+    }
+
+
 }
