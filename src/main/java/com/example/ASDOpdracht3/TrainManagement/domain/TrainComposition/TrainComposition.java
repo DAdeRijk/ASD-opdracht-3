@@ -14,6 +14,11 @@ public class TrainComposition {
     private List<Locomotive> locomotives;
     private List<Wagon> wagons;
 
+    public TrainComposition(int id, int companyCode) {
+        this.id = id;
+        this.companyCode = companyCode;
+    }
+
     public TrainComposition(int id, int companyCode, List<Locomotive> locomotives, List<Wagon> wagons) {
         this.id = id;
         this.companyCode = companyCode;
@@ -41,11 +46,19 @@ public class TrainComposition {
         this.locomotives = locomotives;
     }
 
+    public void setLocomotive(Locomotive locomotive) {
+        this.locomotives.add(locomotive);
+    }
+
     public List<Wagon> getWagons() {
         return wagons;
     }
 
     public void setWagons(List<Wagon> wagons) {
         this.wagons = wagons;
+    }
+
+    public void setWagon(Wagon wagon) {
+        this.wagons.add(wagon);
     }
 }
