@@ -8,14 +8,8 @@ import com.example.ASDOpdracht3.TrainManagement.repository.TrainCompositionRepos
 import javax.persistence.EntityNotFoundException;
 
 public class TrainCompositionImpl implements TrainCompositionInterface {
-    public TrainCompositionImpl(TrainCompositionRepository trainCompositionRepository, TrainCompositionMessageRepository trainCompositionMessageRepository) {
-        this.trainCompositionRepository = trainCompositionRepository;
-        this.trainCompositionMessageRepository = trainCompositionMessageRepository;
-    }
-
-
-    public final TrainCompositionRepository trainCompositionRepository;
-    public final TrainCompositionMessageRepository trainCompositionMessageRepository;
+    private TrainCompositionRepository trainCompositionRepository;
+    private TrainCompositionMessageRepository trainCompositionMessageRepository;
 
     @Override
     public String createTrainComposition() {

@@ -2,18 +2,22 @@ package com.example.ASDOpdracht3.TrainManagement.domain.TrainCompositionMessage;
 
 import com.example.ASDOpdracht3.TrainManagement.domain.TrainComposition.TrainComposition;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 
 public class TrainCompositionMessage {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String messageStatus;
     private String sender;
     private String messageType;
     private LocalDateTime messageDateTime;
     private LocalDateTime startDate;
-    private TrainComposition trainComposition;
+    private Optional<TrainComposition> trainComposition;
 
     public TrainCompositionMessage(int id, String messageStatus, String sender, String messageType, LocalDateTime messageDateTime, LocalDateTime startDate, Optional<TrainComposition> trainComposition) {
         this.id = id;
@@ -77,11 +81,11 @@ public class TrainCompositionMessage {
         this.startDate = startDate;
     }
 
-    public TrainComposition getTrainComposition() {
+    public Optional<TrainComposition> getTrainComposition() {
         return trainComposition;
     }
 
-    public void setTrainComposition(TrainComposition trainComposition) {
+    public void setTrainComposition(Optional<TrainComposition> trainComposition) {
         this.trainComposition = trainComposition;
     }
 }

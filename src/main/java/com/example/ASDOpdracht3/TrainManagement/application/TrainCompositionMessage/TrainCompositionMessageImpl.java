@@ -11,24 +11,11 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class TrainCompositionMessageImpl implements TrainCompositionMessageInterface {
-    public TrainCompositionMessageImpl(TrainCompositionRepository trainCompositionRepository, TrainCompositionMessageRepository trainCompositionMessageRepository) {
-        this.trainCompositionRepository = trainCompositionRepository;
-        this.trainCompositionMessageRepository = trainCompositionMessageRepository;
-    }
-
-
-    public final TrainCompositionRepository trainCompositionRepository;
-    public final TrainCompositionMessageRepository trainCompositionMessageRepository;
+    private TrainCompositionRepository trainCompositionRepository;
+    private TrainCompositionMessageRepository trainCompositionMessageRepository;
 
     @Override
     public String createTrainCompositionMessage(int id, String messageStatus, String sender, String messageType, LocalDateTime messageDateTime, LocalDateTime startDate, String trainCompositionId) {
-        //TODO
-        // check / ophalen traincompositionid
-        // check messageDateTime is not in future?
-        // check startDate is after messageDateTime
-        // create message
-        // save message
-
         if (trainCompositionRepository.findById(trainCompositionId).isPresent()) {
             TrainCompositionMessage trainCompositionMessage = new TrainCompositionMessage(id, messageStatus, sender, messageType, messageDateTime, startDate, trainCompositionRepository.findById(trainCompositionId));
 
