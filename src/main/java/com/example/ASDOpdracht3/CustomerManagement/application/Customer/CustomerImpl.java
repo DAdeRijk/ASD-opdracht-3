@@ -13,22 +13,22 @@ public class CustomerImpl implements CustomerInterface {
         CompanyImpl companyImpl = new CompanyImpl();
         Company c = companyImpl.createCompany(companyCode);
         if(c==null){
-            throw new Exception();
+            return "COMPANY_NOT_LISTED";
         }
 
         UserImpl userImpl = new UserImpl();
         User user = userImpl.createUser(firstName,lastName,email,"ADMIN");
         if(user==null){
-            throw new Exception();
+            return "INVALID_EMAIL";
         }
         userImpl.sendWelcomeMail(email,firstName);
 
         Customer customer = new Customer(firstName,iban,c);
         if(!customer.validateIban()){
-            throw new Exception();
+            return "INVALID_IBAN";
         }
         customer.addUser(user);
-        return "";
+        return "SUCCESS";
 
     };
 }
